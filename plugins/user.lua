@@ -9,4 +9,24 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    init = function()
+      vim.o.background = "dark"
+    end,
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    lazy = false,
+    opts = {
+      auto_trigger = true,
+      suggestion = { enabled = true
+      },
+      panel = { enabled = true },
+    },
+  },
 }
