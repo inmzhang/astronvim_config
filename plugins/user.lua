@@ -57,4 +57,8 @@ return {
       require('leap').add_default_mappings()
     end,
   },
+  {
+    'dccsillag/magma-nvim',
+    build = ':UpdateRemotePlugins'
+  }
 }
