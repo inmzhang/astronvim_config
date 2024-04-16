@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
@@ -81,5 +79,61 @@ return {
         Rule("a", "a", "-vim")
       )
     end,
+  },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+  },
+  {
+    "chikko80/error-lens.nvim",
+    event = "BufRead",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
+    "NoahTheDuke/vim-just",
+    event = { "BufReadPre", "BufNewFile" },
+    ft = { "\\cjustfile", "*.just", ".justfile" },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    -- add cmp latex symbols for easier julia editing
+    dependencies = { "kdheepak/cmp-latex-symbols" },
+    opts = function(_, opts)
+      if not opts.sources then opts.sources = {} end
+      table.insert(opts.sources, { name = "latex_symbols", priority = 700 })
+    end,
+  },
+  {
+    "mbbill/undotree",
+    keys = {
+      { "<leader>fu", "<cmd>UndotreeToggle<cr>", desc = "Toggle undotree" },
+    },
+  },
+  {
+    "stevearc/oil.nvim",
+    keys = {
+      { "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
+    },
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    opts = {},
   },
 }
