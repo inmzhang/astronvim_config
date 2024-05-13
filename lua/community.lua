@@ -19,18 +19,7 @@ return {
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.scrolling.neoscroll-nvim" },
   { import = "astrocommunity.media.vim-wakatime" },
-  { import = "astrocommunity.media.pets-nvim" },
-  { import = "astrocommunity.editing-support.suda-vim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  {
-    "giusgad/pets.nvim",
-    opts = {
-      row = 4,
-      default_pet = "crab",
-      default_style = "red",
-      random = false,
-    },
-  },
+  { import = "astrocommunity.bars-and-lines.lualine-nvim" },
   {
     "copilot.lua",
     opts = {

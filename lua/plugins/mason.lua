@@ -30,6 +30,7 @@ return {
         "prettier",
         "stylua",
         "typst_fmt",
+        "rust_analyzer",
         -- add more arguments for adding more null-ls sources
       })
     end,

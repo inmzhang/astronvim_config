@@ -148,4 +148,9 @@ return {
     version = "0.2.*",
     build = function() require("typst-preview").update() end,
   },
+  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+  {
+    "vimpostor/vim-tpipeline",
+    lazy = false,
+  },
 }
