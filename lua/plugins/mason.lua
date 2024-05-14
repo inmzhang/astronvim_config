@@ -13,7 +13,6 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "marksman",
         "lua_ls",
-        "rust_analyzer",
         "ruff_lsp",
         "typst_lsp",
         -- add more arguments for adding more language servers
@@ -30,7 +29,6 @@ return {
         "prettier",
         "stylua",
         "typst_fmt",
-        "rust_analyzer",
         -- add more arguments for adding more null-ls sources
       })
     end,

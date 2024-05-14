@@ -19,7 +19,6 @@ return {
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.scrolling.neoscroll-nvim" },
   { import = "astrocommunity.media.vim-wakatime" },
-  { import = "astrocommunity.bars-and-lines.lualine-nvim" },
   {
     "copilot.lua",
     opts = {
