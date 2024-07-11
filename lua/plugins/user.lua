@@ -122,20 +122,6 @@ return {
       { "<leader>fu", "<cmd>UndotreeToggle<cr>", desc = "Toggle undotree" },
     },
   },
-  {
-    "stevearc/oil.nvim",
-    keys = {
-      { "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
-    },
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    opts = {},
-  },
   -- typst
   {
     "kaarmu/typst.vim",
