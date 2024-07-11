@@ -39,6 +39,7 @@ return {
             workspace = "root",
           },
         },
+        ["core.ui.calendar"] = {},
       },
     }
   end,
