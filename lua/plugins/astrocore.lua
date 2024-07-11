@@ -61,20 +61,19 @@ return {
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
-        ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
 
         ["Y"] = { "^vg_y", desc = "yank line without head and tail whitespace" },
       },
       t = {
         -- setting a mapping to false will disable it
-        ["<esc>"] = false,
         ["<esc>"] = { "<C-\\><C-n>", desc = "back to normal mode from vim terminal" },
         ["jk"] = { "<C-\\><C-n>", desc = "back to normal mode from vim terminal" },
       },
       i = {
         ["<esc>"] = { "<C-\\><C-n>", desc = "back to normal mode from vim terminal" },
         ["jk"] = { "<C-\\><C-n>", desc = "back to normal mode from vim terminal" },
-      }
+      },
     },
   },
 }
