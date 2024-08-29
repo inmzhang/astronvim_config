@@ -122,18 +122,6 @@ return {
       { "<leader>fu", "<cmd>UndotreeToggle<cr>", desc = "Toggle undotree" },
     },
   },
-  -- typst
-  {
-    "kaarmu/typst.vim",
-    ft = "typst",
-    lazy = false,
-  },
-  {
-    "chomosuke/typst-preview.nvim",
-    ft = "typst",
-    version = "0.2.*",
-    build = function() require("typst-preview").update() end,
-  },
   { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
   {
     "vimpostor/vim-tpipeline",
@@ -142,5 +130,11 @@ return {
   {
     "j-hui/fidget.nvim",
     config = function() require("fidget").setup {} end,
+  },
+  {
+    "chomosuke/typst-preview.nvim",
+    lazy = false, -- or ft = 'typst'
+    version = "0.3.*",
+    build = function() require("typst-preview").update() end,
   },
 }

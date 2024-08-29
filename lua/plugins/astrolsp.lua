@@ -66,6 +66,12 @@ return {
           },
         },
       },
+      tinymist = {
+        settings = {
+          exportPdf = "onSave",
+          formatterMode = "typstyle",
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
