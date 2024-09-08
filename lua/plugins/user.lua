@@ -122,7 +122,12 @@ return {
       { "<leader>fu", "<cmd>UndotreeToggle<cr>", desc = "Toggle undotree" },
     },
   },
-  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function() require("gruvbox").setup { constrast = "hard" } end,
+    opts = ...,
+  },
   {
     "vimpostor/vim-tpipeline",
     lazy = false,
