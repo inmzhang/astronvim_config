@@ -142,4 +142,16 @@ return {
     version = "0.3.*",
     build = function() require("typst-preview").update() end,
   },
+  {
+    "chrisgrieser/nvim-rip-substitute",
+    cmd = "RipSubstitute",
+    keys = {
+      {
+        "<leader>fs",
+        function() require("rip-substitute").sub() end,
+        mode = { "n", "x" },
+        desc = " rip substitute",
+      },
+    },
+  },
 }
