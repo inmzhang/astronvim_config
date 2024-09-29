@@ -4,7 +4,14 @@ return {
   config = function()
     local mc = require "multicursor-nvim"
 
-    mc.setup()
+    mc.setup {
+      -- set to true if you want multicursor undo history
+      -- to clear when clearing cursors
+      shallowUndo = false,
+
+      -- set to empty table to disable signs
+      signs = { " ┆", " │", " ┃" },
+    }
 
     -- Add cursors above/below the main cursor.
     vim.keymap.set({ "n", "v" }, "<up>", function() mc.addCursor "k" end)
@@ -14,7 +21,7 @@ return {
     vim.keymap.set({ "n", "v" }, "<c-n>", function() mc.addCursor "*" end)
 
     -- Jump to the next word under cursor but do not add a cursor.
-    vim.keymap.set({ "n", "v" }, "<c-m>", function() mc.skipCursor "*" end)
+    -- vim.keymap.set({ "n", "v" }, "<c-m>", function() mc.skipCursor "*" end)
 
     -- Rotate the main cursor.
     vim.keymap.set({ "n", "v" }, "<left>", mc.nextCursor)
