@@ -10,6 +10,7 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
