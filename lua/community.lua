@@ -11,7 +11,7 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.typst" },
-  { import = "astrocommunity.pack.haskell" },
+  -- { import = "astrocommunity.pack.haskell" },
   -- { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cpp" },
