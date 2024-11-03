@@ -123,10 +123,6 @@ return {
     opts = ...,
   },
   {
-    "vimpostor/vim-tpipeline",
-    lazy = false,
-  },
-  {
     "j-hui/fidget.nvim",
     config = function() require("fidget").setup {} end,
   },
