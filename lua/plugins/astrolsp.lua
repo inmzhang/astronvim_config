@@ -66,12 +66,6 @@ return {
           },
         },
       },
-      tinymist = {
-        settings = {
-          exportPdf = "onSave",
-          formatterMode = "typstyle",
-        },
-      },
       tailwindcss = {
         filetypes = {
           "html",
