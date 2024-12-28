@@ -66,6 +66,9 @@ return {
           },
         },
       },
+      -- tinymist = {
+      --   offset_encoding = "utf-8",
+      -- },
       tailwindcss = {
         filetypes = {
           "html",
