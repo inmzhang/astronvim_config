@@ -1,8 +1,5 @@
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -43,8 +40,6 @@ return {
     mappings = {
       -- first key is the mode
       n = {
-        -- second key is the lefthand side of the map
-
         -- navigate buffer tabs with `H` and `L`
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
@@ -65,6 +60,9 @@ return {
         ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
 
         ["Y"] = { "^vg_y", desc = "yank line without head and tail whitespace" },
+
+        -- Clear highlights on search when pressing <Esc> in normal mode
+        ["<esc>"] = { ":nohlsearch<cr>", desc = "Clear highlights on search" },
       },
       t = {
         -- setting a mapping to false will disable it
