@@ -28,6 +28,7 @@ return {
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
         conceallevel = 2, -- sets vim.opt.conceallevel
+        colorcolumn = "80", -- sets vim.opt.colorcolumn
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
