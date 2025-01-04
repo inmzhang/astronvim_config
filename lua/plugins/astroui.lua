@@ -7,7 +7,7 @@ return {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "gruvbox-material",
       -- add new user interface icon
       icons = {
         VimIcon = "",

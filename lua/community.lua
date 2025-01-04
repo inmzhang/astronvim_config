@@ -13,7 +13,6 @@ return {
   { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cpp" },
-  { import = "astrocommunity.completion.blink-cmp" },
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.search.nvim-hlslens" },

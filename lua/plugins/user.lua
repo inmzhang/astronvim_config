@@ -107,12 +107,6 @@ return {
     },
   },
   {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = function() require("gruvbox").setup { constrast = "hard" } end,
-    opts = ...,
-  },
-  {
     "j-hui/fidget.nvim",
     config = function() require("fidget").setup {} end,
   },
@@ -134,6 +128,17 @@ return {
       show_icons = true,
       leader_key = ";", -- Recommended to be a single key
       buffer_leader_key = "m", -- Per Buffer Mappings
+    },
+  },
+  {
+    "ellisonleao/carbon-now.nvim",
+    lazy = true,
+    cmd = "CarbonNow",
+    opts = {
+      options = {
+        theme = "solarized",
+        font_family = "JetBrains Mono",
+      },
     },
   },
 }
