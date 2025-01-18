@@ -22,4 +22,5 @@ return {
   { import = "astrocommunity.media.vim-wakatime" },
   { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   { import = "astrocommunity.color.transparent-nvim" },
+  { import = "astrocommunity.completion.blink-cmp" },
 }

@@ -29,6 +29,7 @@ return {
         wrap = false, -- sets vim.opt.wrap
         conceallevel = 2, -- sets vim.opt.conceallevel
         colorcolumn = "80", -- sets vim.opt.colorcolumn
+        scrolloff = 10, -- sets vim.opt.scrolloff
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
