@@ -35,7 +35,7 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "basedpyright",
+      "basedpyright",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -43,8 +43,14 @@ return {
       clangd = { capabilities = { offsetEncoding = "utf-8" } },
       rust_analyzer = {
         cargo = {
+          buildScripts = {
+            enable = true,
+          },
           extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = "dev" },
           extraArgs = { "--profile", "rust-analyzer" },
+        },
+        procMacro = {
+          enable = true,
         },
       },
       basedpyright = {
