@@ -1,3 +1,90 @@
+local util = require "vim.lsp.util"
+
+-- Replace HTML symbols with their literal versions.
+local function split_lines(value)
+  value = string.gsub(value, "&nbsp;", " ")
+  value = string.gsub(value, "&gt;", ">")
+  value = string.gsub(value, "&lt;", "<")
+  value = string.gsub(value, "\\", "")
+  value = string.gsub(value, "```python", "")
+  value = string.gsub(value, "```", "")
+  return vim.split(value, "\n", { plain = true, trimempty = true })
+end
+
+-- Convert the LSP input to a table of strings.
+local function convert_input_to_markdown_lines(input, contents)
+  contents = contents or {}
+  assert(type(input) == "table", "Expected a table for LSP input")
+  if input.kind then
+    local value = input.value or ""
+    vim.list_extend(contents, split_lines(value))
+  end
+  if (contents[1] == "" or contents[1] == nil) and #contents == 1 then return {} end
+  return contents
+end
+
+-- The overwritten hover function used by Pyright.
+local function pyright_hover(_, result, ctx, config)
+  config = config or {}
+  config.focus_id = ctx.method
+
+  if vim.api.nvim_get_current_buf() ~= ctx.bufnr then
+    -- Ignore result since buffer changed (happens with slow LSP responses).
+    return
+  end
+
+  if not (result and result.contents) then
+    if config.silent ~= true then vim.notify "No information available" end
+    return
+  end
+
+  local contents = convert_input_to_markdown_lines(result.contents)
+  if vim.tbl_isempty(contents) then
+    if config.silent ~= true then vim.notify "No information available" end
+    return
+  end
+
+  -- Separate the function signature and the docstring.
+  local signature = {}
+  local docstring = {}
+  local in_signature = true
+
+  for _, line in ipairs(contents) do
+    -- We assume the signature ends when a blank line is encountered.
+    if in_signature then
+      if line:match "^%s*$" then
+        in_signature = false
+      else
+        table.insert(signature, line)
+      end
+    else
+      table.insert(docstring, line)
+    end
+  end
+
+  -- Build the final contents:
+  -- Wrap the signature as a Python code block, and leave the docstring as markdown.
+  local final_contents = {}
+
+  if #signature > 0 then
+    table.insert(final_contents, "```python")
+    for _, line in ipairs(signature) do
+      table.insert(final_contents, line)
+    end
+    table.insert(final_contents, "```")
+  end
+
+  if #docstring > 0 then
+    -- Insert an empty line as separator if needed.
+    if #signature > 0 then table.insert(final_contents, "") end
+    for _, line in ipairs(docstring) do
+      table.insert(final_contents, line)
+    end
+  end
+
+  return util.open_floating_preview(final_contents, "markdown", config)
+end
+
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 ---@type LazySpec
@@ -54,6 +141,14 @@ return {
         },
       },
       basedpyright = {
+        handlers = {
+          ["textDocument/hover"] = vim.lsp.with(pyright_hover, {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+            title = " |･ω･) ",
+            max_width = 120,
+            zindex = 500,
+          }),
+        },
         settings = {
           basedpyright = {
             analysis = {
