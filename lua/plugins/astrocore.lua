@@ -30,6 +30,7 @@ return {
         conceallevel = 2, -- sets vim.opt.conceallevel
         colorcolumn = "80", -- sets vim.opt.colorcolumn
         scrolloff = 10, -- sets vim.opt.scrolloff
+        showtabline = 0, -- hide tabline, see https://docs.astronvim.com/recipes/disable_tabline/
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
